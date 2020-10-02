@@ -3,8 +3,7 @@ import json
 from pprint import pprint
 from bs4 import BeautifulSoup
 
-url = "http://news.google.com/news?q=covid-19karnataka&hl=en-US&sort=date&gl=US&num=20&output=rss"
-
+url = "http://news.google.com/news?q=covid-19&hl=en-US&sort=date&gl=US&num=20&output=rss"
 
 def clean(html):
     '''
@@ -14,7 +13,6 @@ def clean(html):
     text = soup.get_text()
     text = text.replace('\xa0', ' ')
     return text
-
 
 def parsefeed(event,context):
     feeds = feedparser.parse(url).entries
